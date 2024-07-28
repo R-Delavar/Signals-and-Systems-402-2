@@ -1,0 +1,17 @@
+Xvals = 0:0.1:10;
+Yvals = 0:0.1:10;
+noise = 0.8*rand(1,length(Xvals));
+[beta, alpha] = p2_4(Xvals, Yvals);
+subplot(2,1,1);
+plot(Xvals,Yvals);
+ylabel('y(t) without noise ');
+xlabel('x(t)');
+subplot(2,1,2);
+plot(Xvals,(Yvals+noise));
+ylabel('y(t) with noise');
+xlabel('x(t)');
+fprintf('Test without noise:\n');
+fprintf('alpha = %f and beta = %f , the line equation is: y = %f * x + %f \n',alpha,beta,alpha,beta);
+[beta, alpha] = p2_4(Xvals, (Yvals + noise));
+fprintf('Test with noise:\n');
+fprintf('alpha = %f and beta = %f , the line equation is: y = %f * x + %f \n',alpha,beta,alpha,beta);
